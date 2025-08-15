@@ -27,7 +27,7 @@ import java.nio.file.Paths;
             manager.driver().findElement(locator).sendKeys(Paths.get(file).toAbsolutePath().toString());
         }
 
-        protected boolean isElementPresent(By locator) {
+        public boolean isElementPresent(By locator) {
             return manager.driver().findElements(locator).size() > 0;
 
         }
