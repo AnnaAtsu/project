@@ -44,6 +44,7 @@ public class ParametrizedTests {
     }
 
 
+    @ExtendWith(AllureJunit5.class)
     @ParameterizedTest
     @CsvSource({
             "Blinova, пароль111",
@@ -59,6 +60,7 @@ public class ParametrizedTests {
     }
 
 
+    @ExtendWith(AllureJunit5.class)
     @ParameterizedTest
     @ValueSource(strings = {"Blinova", "Savina", "Samsonova"})
     public void canLoginWithSamePassword(String username) {
@@ -70,6 +72,7 @@ public class ParametrizedTests {
     }
 
 
+    @ExtendWith(AllureJunit5.class)
     @ParameterizedTest
     @MethodSource("provideLoginData")
     public void canLoginWithMethod(String username, String password) {
