@@ -1,10 +1,10 @@
 package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import io.qameta.allure.junit5.AllureJunit5;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -18,7 +18,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
-
+@Epic("Авторизация")
 public class ParametrizedTests {
 
     WebDriver driver;
@@ -46,7 +46,9 @@ public class ParametrizedTests {
     }
 
 
+    @Test
     @ExtendWith(AllureJunit5.class)
+    @DisplayName("Успешный вход в систему с csvsource")
     @ParameterizedTest
     @CsvSource({
             "Blinova, пароль111",
@@ -62,7 +64,9 @@ public class ParametrizedTests {
     }
 
 
+    @Test
     @ExtendWith(AllureJunit5.class)
+    @DisplayName("Успешный вход в систему с ValueSource")
     @ParameterizedTest
     @ValueSource(strings = {"Blinova", "Savina", "Samsonova"})
     public void canLoginWithSamePassword(String username) {
@@ -74,7 +78,10 @@ public class ParametrizedTests {
     }
 
 
+    @Test
+    @Story("Валидные учётные данные")
     @ExtendWith(AllureJunit5.class)
+    @DisplayName("Успешный вход в систему с MethodSource")
     @ParameterizedTest
     @MethodSource("provideLoginData")
     public void canLoginWithMethod(String username, String password) {

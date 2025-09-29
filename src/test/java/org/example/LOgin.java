@@ -1,9 +1,10 @@
 package org.example;
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Step;
 import io.qameta.allure.junit5.AllureJunit5;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -32,13 +33,17 @@ public class LOgin {
 
     @Test
     @ExtendWith(AllureJunit5.class)
+    @Step("Зайти в гугл")
     public void testGoogle() {
         driver.get("https://www.google.com");
         Assertions.assertEquals(driver.getCurrentUrl(), "https://www.google.com/");
     }
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     @ExtendWith(AllureJunit5.class)
+    @DisplayName("Успешный вход в систему с валидными учётными данными")
+    @Description(" Проверяет, что пользователь может войти в систему, используя корректный email и пароль.")
     public void canLogin() {
         driver.get("https://test-zerno.mcx.gov.ru/login");
         login("Blinova", "пароль111");
