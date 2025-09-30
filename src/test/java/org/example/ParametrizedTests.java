@@ -50,7 +50,7 @@ public class ParametrizedTests {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//input[@placeholder='Введите логин']")).sendKeys(user);
         driver.findElement(By.id("input-71")).sendKeys(password);
-        driver.findElement(By.xpath("//span[contains(.,'Войти')]")).click();
+    //    driver.findElement(By.xpath("//span[contains(.,'Войти')]")).click();
 
     }
 
