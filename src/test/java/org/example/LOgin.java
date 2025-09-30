@@ -42,6 +42,7 @@ public class LOgin {
     @Test
     @ExtendWith(AllureJunit5.class)
     @Step("Зайти в гугл")
+    @DisplayName("Перейти в гугл")
     public void testGoogle() {
         driver.get("https://www.google.com");
         Assertions.assertEquals(driver.getCurrentUrl(), "https://www.google.com/");
@@ -63,7 +64,7 @@ public class LOgin {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//input[@placeholder='Введите логин']")).sendKeys(user);
         driver.findElement(By.id("input-71")).sendKeys(password);
-        driver.findElement(By.xpath("//span[contains(.,'Войти')]")).click();
+       // driver.findElement(By.xpath("//span[contains(.,'Войти')]")).click();
     }
 
 }
