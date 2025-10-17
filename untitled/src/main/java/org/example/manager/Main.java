@@ -14,10 +14,10 @@ public class Main {
 
     /**
      * Метод вычисляет деление, умножение, сложение, вычитание и остаток от деления, действие берутся из enum CalculateAction. При пробросе исключения возвращает текст ошибки и 0
-     * @param firstValue
-     * @param secondValue
-     * @param action
-     * @return
+     * @param firstValue int первое число
+     * @param secondValue int второе число
+     * @param action enum вычислительное действие
+     * @return int
      */
     public static int calculate(int firstValue, int secondValue, CalculateAction action) {
         switch (action) {

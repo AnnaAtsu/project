@@ -13,6 +13,10 @@ import static org.testng.AssertJUnit.assertEquals;
 public class CalculatorTestWithArguments {
 
 
+    /**
+     * Стрим с аргументами с тестовыми данными для проверки метода calculate
+     * @return Stream
+     */
     static Stream<Arguments> provideTestData1() {
         return Stream.of(
                 Arguments.of(2, 3, Main.CalculateAction.SUM, 5),
@@ -24,6 +28,13 @@ public class CalculatorTestWithArguments {
         );
     }
 
+    /**
+     * Параметризированный тест проверки работы калькулятора с положительными проверками
+     * @param a int первое число
+     * @param b int второе число
+     * @param action enum вычислительное действие
+     * @param expected int ожидаемый результат от вычисления
+     */
     @ParameterizedTest
     @MethodSource("provideTestData1")
     void testCalculate(int a, int b, Main.CalculateAction action, int expected) {
@@ -31,7 +42,11 @@ public class CalculatorTestWithArguments {
         assertEquals(expected, result);
     }
 
-    // Отдельный тест для деления на ноль
+    /**
+     * Параметризированный тест проверки работы калькулятора с делением и остатком от деления 0
+     * @param a int первое число
+     * @param action enum вычислительное действие(здесь использовать DIVIDE или REMAINDER)
+     */
     @ParameterizedTest
     @MethodSource("provideDivisionByZeroActions")
     void testDivisionByZero(int a, Main.CalculateAction action) {
@@ -40,6 +55,10 @@ public class CalculatorTestWithArguments {
         });
     }
 
+    /**
+     * Стрим с аргументами с тестовыми данными для проверки метода calculate для проверки на делением и остатком от деления 0
+     * @return Stream
+     */
     static Stream<Arguments> provideDivisionByZeroActions() {
         return Stream.of(
                 Arguments.of(5, Main.CalculateAction.DIVIDE),
