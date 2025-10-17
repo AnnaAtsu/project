@@ -43,7 +43,7 @@ public class Main {
                 break;
             default:
                 System.out.println("Неизвестная операция: " + action);
-                // Тоже нужно что-то вернуть!
+                return 0;
         }
 
         return 0;
