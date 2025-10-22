@@ -108,4 +108,20 @@ public class ParametrizedTests {
         );
     }
 
+    static Stream<Object[]> provideObjects() {
+        return Stream.of(new Object[]{"Blinova", "пароль111"},
+                new Object[]{"Molchanov", "пароль111"}
+        );
+    }
+
+
+    @Test
+    @ParameterizedTest
+    @MethodSource("provideObjects")
+    public void canloginWithObject(String username, String password) {
+        driver.get("https://test-zerno.mcx.gov.ru/login");
+        login(username, password);
+        Assertions.assertEquals("https://test-zerno.mcx.gov.ru/login", driver.getCurrentUrl());
+    }
+
 }

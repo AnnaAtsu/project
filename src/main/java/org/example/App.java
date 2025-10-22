@@ -1,5 +1,6 @@
 package org.example;
 
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -9,13 +10,6 @@ import java.util.stream.Collectors;
  *
  */
 public class App {
-    //1. Найти первое неповторяющееся число в массиве.
-   // Пример: {4, 5, 1, 2, 1, 4, 2} → результат: 5
-
-
-
-     //       3. Посчитать количество гласных букв в строке.
-  //  Пример: "Автотестирование" → 7
 
 
 
@@ -126,11 +120,21 @@ public class App {
         System.out.println(pali);
         System.out.println("--------------");
 
-        //       3. Посчитать количество гласных букв в строке.
-        //  Пример: "Автотестирование" → 7
-        String a = "автотестирование";
-        String  itog = "";
 
+
+        //1. Найти первое неповторяющееся число в массиве.
+        // Пример: {4, 5, 1, 2, 1, 4, 2} → результат: 5
+
+        int[] arr = new int[]{4, 5, 1, 2, 1, 4, 2};
+        int result = 0;
+        for (int i = 0; i >= 0; i ++) {
+            result += arr[i];
+
+
+
+        }
+
+     
 
     }
 
