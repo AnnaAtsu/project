@@ -1,6 +1,6 @@
 package org.example;
 
-public class Main1 {
+public class Calculator {
     /**
      * ENUM CalculateAction для действий в методе калькулятора. Есть деление, умножение, сложение, вычитание и остаток от деления.
      */
@@ -8,6 +8,9 @@ public class Main1 {
         SUM, MULTIPLY, SUB, DIVIDE, REMAINDER;
     }
 
+    public static int calculate(int firstValue, int secondValue, ICalculator action) throws DivideByZero {
+        return action.calc(firstValue, secondValue);
+    }
 
     /**
      * Метод вычисляет деление, умножение, сложение, вычитание и остаток от деления, действие берутся из enum CalculateAction. При пробросе исключения возвращает текст ошибки и 0
@@ -33,15 +36,13 @@ public class Main1 {
                 try {
                     return firstValue % secondValue;
                 } catch (ArithmeticException e) {
-                    System.out.println("Ошибка: остаток от деления на ноль!");
+                    System.out.println("Нельзя делить на ноль!");
+                    throw new DivideByZero("Нельзя делить на ноль!");
                 }
-                break;
             default:
                 System.out.println("Неизвестная операция: " + action);
                 return 0;
         }
-
-        return 0;
     }
 
 

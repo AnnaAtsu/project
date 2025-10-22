@@ -19,11 +19,11 @@ public class CalculatorTestWithArguments1 {
      */
     static Stream<Arguments> provideTestData1() {
         return Stream.of(
-                Arguments.of(2, 3, Main1.CalculateAction1.SUM, 5),
-                Arguments.of(5, 4, Main1.CalculateAction1.MULTIPLY, 20),
-                Arguments.of(10, 3, Main1.CalculateAction1.SUB, 7),
-                Arguments.of(9, 3, Main1.CalculateAction1.DIVIDE, 3),
-                Arguments.of(10, 3, Main1.CalculateAction1.REMAINDER, 1)
+                Arguments.of(2, 3, Calculator.CalculateAction1.SUM, 5),
+                Arguments.of(5, 4, Calculator.CalculateAction1.MULTIPLY, 20),
+                Arguments.of(10, 3, Calculator.CalculateAction1.SUB, 7),
+                Arguments.of(9, 3, Calculator.CalculateAction1.DIVIDE, 3),
+                Arguments.of(10, 3, Calculator.CalculateAction1.REMAINDER, 1)
 
         );
     }
@@ -37,8 +37,8 @@ public class CalculatorTestWithArguments1 {
      */
     @ParameterizedTest
     @MethodSource("provideTestData1")
-    void testCalculate(int a, int b, Main1.CalculateAction1 action, int expected) throws DivideByZero {
-        int result = Main1.calculate(a, b, action);
+    void testCalculate(int a, int b, Calculator.CalculateAction1 action, int expected) throws DivideByZero {
+        int result = Calculator.calculate(a, b, action);
         assertEquals(expected, result);
     }
 
@@ -49,12 +49,12 @@ public class CalculatorTestWithArguments1 {
      */
     @ParameterizedTest
     @MethodSource("provideDivisionByZeroActions")
-    void testDivisionByZero(int a, Main1.CalculateAction1 action) {
+    void testDivisionByZero(int a, Calculator.CalculateAction1 action) {
         DivideByZero divideByZero = assertThrows(DivideByZero.class, () -> {
-            Main1.calculate(a, 0, action);
+            Calculator.calculate(a, 0, action);
         });
 
-        assertEquals("null", divideByZero.getMessage());
+        assertEquals("Нельзя делить на ноль!", divideByZero.getMessage());
     }
 
     /**
@@ -63,8 +63,8 @@ public class CalculatorTestWithArguments1 {
      */
     static Stream<Arguments> provideDivisionByZeroActions() {
         return Stream.of(
-                Arguments.of(5, Main1.CalculateAction1.DIVIDE),
-                Arguments.of(10, Main1.CalculateAction1.REMAINDER)
+                Arguments.of(5, Calculator.CalculateAction1.DIVIDE),
+                Arguments.of(10, Calculator.CalculateAction1.REMAINDER)
         );
     }
 }
