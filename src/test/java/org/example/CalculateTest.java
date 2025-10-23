@@ -61,7 +61,7 @@ public class CalculateTest {
         int result = Calculator.calculate(tc.a, tc.b, tc.action);
         assertEquals(tc.expected, result);
 
-        Calculator.calculate(tc.a, tc.b, new Summator());
+        // Calculator.calculate(tc.a, tc.b, new Summator());
     }
 
     /**

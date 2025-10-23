@@ -8,7 +8,15 @@ public class Calculator {
         SUM, MULTIPLY, SUB, DIVIDE, REMAINDER;
     }
 
-    public static int calculate(int firstValue, int secondValue, ICalculator action) throws DivideByZero {
+    /**
+     * Метод для отработки интерфейса ICalculator
+     * @param firstValue
+     * @param secondValue
+     * @param action
+     * @return
+     * @throws DivideByZero
+     */
+    public static int calculate2(int firstValue, int secondValue, ICalculator action) throws DivideByZero {
         return action.calc(firstValue, secondValue);
     }
 
@@ -48,7 +56,13 @@ public class Calculator {
 
     public static void main(String[] args) throws DivideByZero {
 
-        System.out.println(calculate( 10, 10, CalculateAction1.DIVIDE)); // 3
+       // System.out.println(calculate( 10, 10, CalculateAction1.DIVIDE)); // 3
+        System.out.println(calculate2(2, 6, new Summator()));
+        System.out.println(calculate2(32, 2, new Dividor()));
+        System.out.println(calculate2(22, 8, new Subator()));
+        System.out.println(calculate2(2, 60, new Multyplier()));
+        System.out.println(calculate2(22, 6, new Remainder()));
+        System.out.println(calculate2(4,2, new Logarifmator()));
     }
 
 }
