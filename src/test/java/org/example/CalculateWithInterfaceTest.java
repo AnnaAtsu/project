@@ -20,7 +20,8 @@ public class CalculateWithInterfaceTest {
                 Arguments.of(10, 3, new Subator(), 7),
                 Arguments.of(9, 3, new Dividor(), 3),
                 Arguments.of(10, 3, new Remainder(), 1),
-                Arguments.of(4,2, new Logarifmator(), 2)
+                Arguments.of(4,2, new Logarifmator(), 2),
+                Arguments.of(3, 0, new Factoriator(), 6)
 
         );
     }
@@ -35,8 +36,9 @@ public class CalculateWithInterfaceTest {
      */
     @ParameterizedTest
     @MethodSource("provideTestData1")
-    void testCalculate(int a, int b, ICalculator calculator, int expected) throws DivideByZero {
+    void testCalculate(int a, int b, ICalculator calculator, int expected) throws DivideByZero, InterruptedException {
         int result = calculator.calc(a, b);
         assertEquals(expected, result);
+        Thread.sleep(1000);
     }
 }
