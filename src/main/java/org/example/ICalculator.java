@@ -3,11 +3,10 @@ package org.example;
 public interface ICalculator {
 
     /**
-     * Метод интерфейса по работе с двумя числами
      *
-     * @param firstValue  int
-     * @param secondValue int
-     * @return действие калькулятора
+     * @param args
+     * @return
      */
-    int calc(int firstValue, int secondValue);
+    //int calc(int firstValue, int secondValue);
+      int calc(int... args);
 }

@@ -1,15 +1,14 @@
 package org.example;
 
-public class Summator implements ICalculator{
+public class Summator implements ICalculator {
 
-    /**
-     * Переопределенный метод для подсчета суммы из интерфейса ICalculator
-     * @param firstValue int
-     * @param secondValue int
-     * @return сумму чисел int
-     */
+
     @Override
-    public int calc(int firstValue, int secondValue) {
-        return firstValue + secondValue;
+    public int calc(int... args) {
+        int summa = 0;
+        for (int arg : args) {
+            summa += arg;
+        }
+        return summa;
     }
 }
